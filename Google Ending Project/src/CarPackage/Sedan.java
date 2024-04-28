@@ -1,0 +1,26 @@
+package CarPackage;
+
+public class Sedan extends Car{
+
+	public Sedan(String brand, String model, String segment, String gearType, int trunkCapacity, String color, int age,
+			String fuelType, double dailyRentalRate) {
+		super(brand, model, segment, gearType, trunkCapacity, color, age, fuelType, dailyRentalRate);
+		// TODO Auto-generated constructor stub
+	}
+	
+	private static final double aMonthDiscountRate = 0.07;
+
+	@Override
+	public double calculateRentalRate(int rentDuration) {
+		
+		double totalPrice = getDailyRentalRate()*rentDuration;
+		
+		if(rentDuration >= 30) {
+			totalPrice -= totalPrice*aMonthDiscountRate;
+		}
+		
+		return totalPrice;
+		
+	}
+
+}
